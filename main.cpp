@@ -1,49 +1,36 @@
 #include<iostream>
 using namespace std;
-class Node{
+class StackArray{
+    int arr[10];
+    int top;
     public:
-        int data;
-        Node *next;
-        Node(int val){
-            data=val;
-            next=nullptr;}};
-class StackLinkedList{
-    private:
-        Node *top;
-    public:
-        StackLinkedList(){
-            top=nullptr;
+        StackArray(){
+            top=-1;//0
         }
-        void push(int val){
-            Node* newNode=new Node(val);
-            newNode->next=top;
-            top=newNode;}
-        void pop(){
-            if(top==nullptr){
-                cout<<"Stack underflow";return;
-            }
-            Node *temp=top;
-            top=top->next;
-            delete(temp);}
-        void peek(){
-            cout<<top->data<<endl;
+        void push(int val){if(top==9){
+            cout<<"Stack overflow";return;}
+            arr[++top]=val;//arr[0]=10
+        }
+        void pop(){if(top==-1){
+            cout<<"Stack underflow";return;}
+            top--;
         }
         void isEmpty(){
-            if(top==nullptr)
+            if(top==-1)
                 cout<<"Yes";
             else
-                cout<<"No";
-        }void display(){
-            Node *temp=top;
-            while(temp!=nullptr){
-                cout<<temp->data<<"->";
-                temp=temp->next;//4k->3k->2k->1k
-            }//temp=1000 
-            cout<<"NULL";
+                cout<<"No";}
+        void peek(){
+            cout<<arr[top];}
+        void display(){
+            cout<<"Stack using array";
+            for(int i=top;i>=0;i--){
+                cout<<arr[i]<<"->";
+            }cout<<"NULL";
         }
-};
+        };
 int main(){
-    StackLinkedList st;
+    StackArray st;
     st.isEmpty();//Yes
     st.push(10);//1000
     st.push(20);
