@@ -1,0 +1,20 @@
+*{
+padding: 0px;
+margin: 0px;
+}
+body{
+    background-color:peachpuff;
+}
+h1{
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+container{
+    display:flex;
+    flex-wrap: wrap;
+}
+container div{
+    width: 200px;
+    color: white;
+}
